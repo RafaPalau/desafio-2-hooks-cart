@@ -37,14 +37,14 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
   });
 
   // tipagem generica
-  const pervCartRef = useRef<Product>();
+  const prevCartRef = useRef<Product[]>();
 
   useEffect(() => {
-    pervCartRef.current = cart;
+    prevCartRef.current = cart;
   });
 
   // se o primeiro valor for falsy retorna cart. se não retorna o pervCartRef
-  const cartPreviousValue = pervCartRef.current ?? cart;
+  const cartPreviousValue = prevCartRef.current ?? cart;
 
   useEffect(() => {
     if (cartPreviousValue !== cart) {
